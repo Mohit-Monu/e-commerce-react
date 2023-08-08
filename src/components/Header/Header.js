@@ -9,7 +9,7 @@ function Header(props) {
   return (
       <Navbar expand="lg" className="bg-dark">
       <Container fluid >
-        <Navbar.Brand className="text-light" href="#">E-Commerce</Navbar.Brand>
+        <Navbar.Brand className="text-light" href="/">E-Commerce</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -17,9 +17,9 @@ function Header(props) {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link className="text-light" href="#action1">Home</Nav.Link>
-            <Nav.Link className="text-light" href="#action2">Store</Nav.Link>
-            <Nav.Link className="text-light" href="#action3">About</Nav.Link>
+            <Nav.Link className="text-light" href="/">Home</Nav.Link>
+            <Nav.Link className="text-light" href="/store">Store</Nav.Link>
+            <Nav.Link className="text-light" href="/about">About</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <div>

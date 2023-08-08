@@ -1,3 +1,5 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import "./App.css";
 import Display from "./components/Display/Display";
 import Header from "./components/Header/Header";
@@ -15,18 +17,39 @@ function App() {
       setShowCart(false);
     }
   }
-  return (
-    <>
-      <ProductProvider>
-        <CartProvider>
-          <Cart show={ShowCart} onHide={CartHandler}></Cart>
-          <Header Onshowcart={CartHandler}></Header>
-          <Display></Display>
-          <ShowProducts></ShowProducts>
-        </CartProvider>
-      </ProductProvider>
-    </>
+  const pathhome = (
+    <ProductProvider>
+      <CartProvider>
+        <Cart show={ShowCart} onHide={CartHandler}></Cart>
+        <Header Onshowcart={CartHandler}></Header>
+        <Display></Display>
+        <ShowProducts></ShowProducts>
+      </CartProvider>
+    </ProductProvider>
   );
+  const pathabout = (
+    <ProductProvider>
+      <CartProvider>
+        <Cart show={ShowCart} onHide={CartHandler}></Cart>
+        <Header Onshowcart={CartHandler}></Header>
+      </CartProvider>
+    </ProductProvider>
+  );
+  const pathstore = (
+    <ProductProvider>
+      <CartProvider>
+        <Cart show={ShowCart} onHide={CartHandler}></Cart>
+        <Header Onshowcart={CartHandler}></Header>
+        <ShowProducts></ShowProducts>
+      </CartProvider>
+    </ProductProvider>
+  );
+  const router = createBrowserRouter([
+    { path: "/", element: pathhome },
+    { path: "/store", element: pathstore },
+    { path: "/about", element: pathabout },
+  ]);
+  return <RouterProvider router={router} />;
 }
 
 export default App;
