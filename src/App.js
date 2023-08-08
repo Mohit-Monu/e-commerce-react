@@ -15,16 +15,15 @@ function App() {
       setShowCart(false);
     }
   }
-
   return (
     <>
-      <CartProvider>
-        <Cart show={ShowCart} onHide={CartHandler}></Cart>
-      </CartProvider>
       <ProductProvider>
-        <Header Onshowcart={CartHandler}></Header>
-        <Display></Display>
-        <ShowProducts></ShowProducts>
+        <CartProvider>
+          <Cart show={ShowCart} onHide={CartHandler}></Cart>
+          <Header Onshowcart={CartHandler}></Header>
+          <Display></Display>
+          <ShowProducts></ShowProducts>
+        </CartProvider>
       </ProductProvider>
     </>
   );
