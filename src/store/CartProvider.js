@@ -1,44 +1,61 @@
+import { useEffect, useState } from "react";
 import CartContext from "./Cart-context";
 
 const CartProvider = (props) => {
-  const cart = [
-    {
-      title: "Colors",
-      price: 100,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-      quantity: 2,
-    },
-    {
-      title: "Black and white Colors",
-      price: 50,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-      quantity: 3,
-    },
-    {
-      title: "Yellow and Black Colors",
-      price: 70,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-      quantity: 1,
-    },
-    {
-      title: "Yellow and Black Colors",
-      price: 70,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-      quantity: 1,
-    },    {
-      title: "Yellow and Black Colors",
-      price: 70,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-      quantity: 1,
-    },
-  ];
+
+  const [cartState, setCartState] = useState([]);
+  const [totalPrice, settotalPriceState] = useState(0);
+  useEffect(()=>{
+    let total=0;
+    cartState.forEach((ele)=>{
+      total+=ele.price*ele.quantity
+    })
+    settotalPriceState(total)
+  },[cartState])
+
+  const addToCartHandler = (item) => {
+    let flag = 0;
+    const items = cartState.map((element) => {
+      if (element.id === item.id) {
+        element.quantity++;
+        flag++;
+        return element;
+      } else {
+        return element;
+      }
+    });
+    if (flag === 0) {
+      setCartState((previtem) => {
+        return [item, ...previtem];
+      });
+    } else {
+      setCartState(items);
+    }
+  };
+  function DeleteFromCartHandler(id){
+    console.log(id)
+
+    const items=[]
+    for(var i=0;i<cartState.length;i++){
+      console.log(items)
+      if(cartState[i].id===+id){
+
+      }else{
+        items.push(cartState[i])
+      }
+    }
+    setCartState(items)
+  }
+  const expvalue = {
+    item: cartState,
+    addToCart: addToCartHandler,
+    DeleteFromCart:DeleteFromCartHandler,
+    totalPrice:totalPrice
+  };
   return (
-    <CartContext.Provider value={cart}>{props.children}</CartContext.Provider>
+    <CartContext.Provider value={expvalue}>
+      {props.children}
+    </CartContext.Provider>
   );
 };
 export default CartProvider;

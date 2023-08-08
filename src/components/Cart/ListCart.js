@@ -4,10 +4,10 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
-function ListCart() {
+function ListCart(props) {
   const CartCtx = useContext(CartContext);
-  return CartCtx.map((item, index) => (
-    <Container >
+  return CartCtx.item.map((item, index) => (
+    <Container key={item.id} >
       <Row className="align-items-center">
         <Col md={3}>
           <Image
@@ -27,6 +27,9 @@ function ListCart() {
         </Col>
         <Col>
           <h2>{+item.quantity * +item.price}</h2>
+        </Col>
+        <Col>
+        <button type="button" className=" btn btn-danger " value={item.id} onClick={props.OnDeleteFromCart} >Delete</button>
         </Col>
       </Row>
     </Container>
