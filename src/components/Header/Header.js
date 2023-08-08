@@ -2,7 +2,7 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-function Header() {
+function Header(props) {
   return (
       <Navbar expand="lg" className="bg-dark">
       <Container fluid >
@@ -20,7 +20,7 @@ function Header() {
           </Nav>
         </Navbar.Collapse>
         <div>
-        <Button style={{display:"flex",float:"left"}} variant="success">My Cart</Button>
+        <Button onClick={props.Onshowcart} style={{display:"flex",float:"left"}} variant="success">My Cart</Button>
         <span style={{color:"white",marginLeft:"4px",fontSize:"20px",marginTop:"-10px",float:"left"}} >4</span>
         </div>
       </Container>
