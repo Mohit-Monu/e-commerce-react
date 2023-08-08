@@ -1,8 +1,5 @@
 import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
 import Modal from "react-bootstrap/Modal";
-import Row from "react-bootstrap/Row";
 import ListCart from "./ListCart";
 
 const Cart = (props) => {
@@ -18,6 +15,8 @@ const Cart = (props) => {
         <Modal.Body>
             <ListCart></ListCart>
         </Modal.Body>
+        <Modal.Title className="text-danger align-self-center">Total Price-</Modal.Title>
+          
         <Modal.Footer>
           <Button variant="secondary" onClick={props.onHide} >
             Close

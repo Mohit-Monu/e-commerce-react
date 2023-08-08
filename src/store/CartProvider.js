@@ -23,6 +23,19 @@ const CartProvider = (props) => {
         "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
       quantity: 1,
     },
+    {
+      title: "Yellow and Black Colors",
+      price: 70,
+      imageUrl:
+        "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
+      quantity: 1,
+    },    {
+      title: "Yellow and Black Colors",
+      price: 70,
+      imageUrl:
+        "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
+      quantity: 1,
+    },
   ];
   return (
     <CartContext.Provider value={cart}>{props.children}</CartContext.Provider>
