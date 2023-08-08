@@ -8,6 +8,7 @@ import ProductProvider from "./store/ProductProvider";
 import CartProvider from "./store/CartProvider";
 import Cart from "./components/Cart/Cart";
 import { useState } from "react";
+import About from "./components/About/About";
 function App() {
   const [ShowCart, setShowCart] = useState(false);
   function CartHandler() {
@@ -32,6 +33,7 @@ function App() {
       <CartProvider>
         <Cart show={ShowCart} onHide={CartHandler}></Cart>
         <Header Onshowcart={CartHandler}></Header>
+        <About></About>
       </CartProvider>
     </ProductProvider>
   );
