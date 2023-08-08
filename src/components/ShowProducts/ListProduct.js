@@ -1,19 +1,22 @@
+import { useContext } from "react";
 import { Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
+import ProductContext from "../../store/Product-context";
 
-function ListProduct(props) {
-  return props.products.map((item, index) => (
-    <Col key={index}>
-      <Card style={{border:" 2px solid red"}} >
-        <Card.Img variant="top" src={item.imageUrl} className="p-3"/>
-        <Card.Body>
+function ListProduct() {
+  const productCtx=useContext(ProductContext)
+  return productCtx.map((item, idx) => (
+    <Col key={idx} >
+      <Card  border="danger" >
+        <Card.Img variant="top" src={item.imageUrl} style={{ width: "25rem" }} className="align-self-center mt-4 img-fluid"  />
+        <Card.Body className="d-grid gap-2">
           <Card.Title>{item.title}</Card.Title>
-          <Card.Title className="text-danger">Rs.{item.price}</Card.Title>
+          <Card.Title style={{color:"red"}} >Rs.{item.price}</Card.Title>
+          <Button  variant="success" size="lg">Add to Cart</Button>
         </Card.Body>
-        <Button variant="success" className="btn-lg" > Add To Cart</Button>
       </Card>
     </Col>
-  ));
+  ))
 }
 export default ListProduct;

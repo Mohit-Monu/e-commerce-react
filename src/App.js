@@ -2,40 +2,14 @@ import "./App.css";
 import Display from "./components/Display/Display";
 import Header from "./components/Header/Header";
 import ShowProducts from "./components/ShowProducts/ShowProducts";
+import ProductProvider from "./store/ProductProvider";
 function App() {
-  const productsArr = [
-    {
-      title: "Colors",
-      price: 100,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-    },
-    {
-      title: "Black and white Colors",
-      price: 50,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-    },
-    {
-      title: "Yellow and Black Colors",
-      price: 70,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-    },
-    {
-      title: "Blue Color",
-      price: 100,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-    },
-  ];
-
   return (
-    <>
+    <ProductProvider>
       <Header></Header>
       <Display></Display>
-      <ShowProducts products={productsArr} ></ShowProducts>
-    </>
+      <ShowProducts></ShowProducts>
+    </ProductProvider>
   );
 }
 
