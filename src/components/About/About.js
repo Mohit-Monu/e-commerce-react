@@ -1,4 +1,5 @@
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 
 function About() {
@@ -7,7 +8,11 @@ function About() {
       <Card.Header>About Us</Card.Header>
       <Card.Body>
         <Card.Title>Mohit Agarwal</Card.Title>
-        <Card.Img variant="top" style={{height:"300px",width:"300px"}} src="https://drive.google.com/uc?id=1EXNMSTRNINuBVwS5r07nx77Q5C45ipLP" />
+        <Card.Img
+          variant="top"
+          style={{ height: "300px", width: "300px" }}
+          src="https://drive.google.com/uc?id=1EXNMSTRNINuBVwS5r07nx77Q5C45ipLP"
+        />
         <Card.Text className="mt-4">
           Est consectetur laboris dolor laborum qui eiusmod reprehenderit. Esse
           ad minim exercitation cupidatat reprehenderit culpa id proident
@@ -51,8 +56,13 @@ function About() {
           consequat dolore quis do commodo consectetur id voluptate. Labore
           officia elit laboris incididunt velit laboris eu occaecat.
         </Card.Text>
-        <Button variant="primary" href="/store">
-          Go to Shop
+        <Button variant="primary">
+          <Link
+            to="/store"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            Store
+          </Link>
         </Button>
       </Card.Body>
     </Card>

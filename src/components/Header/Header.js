@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { NavLink } from "react-router-dom"; 
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -7,19 +8,22 @@ import CartContext from "../../store/Cart-context";
 function Header(props) {
   const CartCtx=useContext(CartContext)
   return (
-      <Navbar expand="lg" className="bg-dark">
+      <Navbar expand="lg" className="bg-dark" variant="dark">
       <Container fluid >
-        <Navbar.Brand className="text-light" href="/">E-Commerce</Navbar.Brand>
+        <Navbar.Brand href="/">E-Commerce</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: "100px" }}
             navbarScroll
+            
           >
-            <Nav.Link className="text-light" href="/">Home</Nav.Link>
-            <Nav.Link className="text-light" href="/store">Store</Nav.Link>
-            <Nav.Link className="text-light" href="/about">About</Nav.Link>
+          <NavLink to="/" style={{textDecoration:"none",color: "white",marginRight:"15px",marginLeft:"25px"}}>Home</NavLink>
+          <NavLink to="/store"  style={{textDecoration:"none",color: "white" ,marginRight:"15px" }}>Store</NavLink>
+          <NavLink to="/about"  style={{textDecoration:"none",color: "white" ,marginRight:"15px" }}>About</NavLink>
+          <NavLink to="/contact"  style={{textDecoration:"none",color: "white" ,marginRight:"15px" }}>Contact Us</NavLink>
+
           </Nav>
         </Navbar.Collapse>
         <div>
