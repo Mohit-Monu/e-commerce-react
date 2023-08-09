@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 import "./App.css";
 import Display from "./components/Display/Display";
 import Header from "./components/Header/Header";
@@ -10,6 +9,7 @@ import Cart from "./components/Cart/Cart";
 import { useState } from "react";
 import About from "./components/About/About";
 import ContactUs from "./components/ContactUs/ContactUs";
+import Product from "./components/Product/Product"
 function App() {
   const [ShowCart, setShowCart] = useState(false);
   function CartHandler() {
@@ -56,6 +56,15 @@ function App() {
       </CartProvider>
     </ProductProvider>
   );
+  const pathproduct = (
+    <ProductProvider>
+      <CartProvider>
+      <Cart show={ShowCart} onHide={CartHandler}></Cart>
+        <Header Onshowcart={CartHandler}></Header>
+        <Product></Product>
+      </CartProvider>
+    </ProductProvider>
+  );
   async function FormHandler(data){
     console.log(data)
     try{
@@ -76,6 +85,8 @@ function App() {
     { path: "/store", element: pathstore },
     { path: "/about", element: pathabout },
     { path: "/contact", element: pathcontact },
+    { path: "/product/:productid", element: pathproduct },
+
   ]);
   return <RouterProvider router={router} />;
 }
