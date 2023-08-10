@@ -1,9 +1,7 @@
-import { useParams } from "react-router-dom"
-
-function Product(){
-    const params=useParams().productid
+import SetProductLayout from "./SetProductLayout/Image"
+function Product() {
     return(
-        <h1>Hiiii{params}</h1>
-    )
+      <SetProductLayout></SetProductLayout>
+  );
 }
-export default Product
+export default Product;

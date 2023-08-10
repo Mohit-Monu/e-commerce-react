@@ -33,13 +33,10 @@ const CartProvider = (props) => {
     }
   };
   function DeleteFromCartHandler(id){
-    console.log(id)
 
     const items=[]
     for(var i=0;i<cartState.length;i++){
-      console.log(items)
-      if(cartState[i].id===+id){
-
+      if(cartState[i].id===id){
       }else{
         items.push(cartState[i])
       }
