@@ -1,7 +1,7 @@
-import SetProductLayout from "./SetProductLayout/Image"
+import ProductTogether from "./SetProductLayout/ProductTogether"
 function Product() {
     return(
-      <SetProductLayout></SetProductLayout>
+      <ProductTogether></ProductTogether>
   );
 }
 export default Product;

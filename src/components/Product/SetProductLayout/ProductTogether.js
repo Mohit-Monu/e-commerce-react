@@ -9,6 +9,8 @@ import { useContext, useState, useCallback, useEffect } from "react";
 import ProductBigImageBig from "./ProductBigImageBig";
 import ProductBigImagesmall from "./ProductBigImagesmall";
 import CartContext from "../../../store/Cart-context";
+import ProductTitle from "./ProductTitle";
+import ProductReview from "./ProductReview";
 
 function Image() {
   const params = useParams().productid;
@@ -26,6 +28,7 @@ function Image() {
         title: data.title,
         price: data.price,
         refImg: data.refImg,
+        review: data.review
       };
       setProduct(obj);
       setCurrentImage(obj.imageUrl);
@@ -51,7 +54,7 @@ function Image() {
   }
   return (
     <Container fluid>
-      <Row className="bg-secondary">
+      <Row>
         <Col md={6} style={{ borderRight: "5px solid black" }}>
           <Container className="mt-2 mb-2 d-none d-lg-block">
             <Row md={12} style={{ height: "85vh", width: "100%" }}>
@@ -95,8 +98,12 @@ function Image() {
             </Row>
           </Container>
         </Col>
-        <Col className="bg-danger">
-          <h1>{product.title}</h1>
+        <Col style={{ height: "85vh" }}>
+            <ProductTitle
+              title={product.title}
+              price={product.price}
+            ></ProductTitle>
+            <ProductReview review={product.review}></ProductReview>
         </Col>
       </Row>
     </Container>
