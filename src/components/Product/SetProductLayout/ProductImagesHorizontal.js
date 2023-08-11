@@ -13,7 +13,7 @@ function ProductImagesHorizontal(props) {
               key={index}
               style={{height:"100%"}}
               rounded
-              className="p-1 "
+              className="p-1 shadow-lg"
               onClick={props.OnClick}
               src={item}
             ></Image>

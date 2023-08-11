@@ -1,0 +1,27 @@
+/* Style for the product rating container */
+.product {
+    display: inline-block;
+    background-color: green;
+    border-radius: 25px;
+    padding: 5px 10px;
+    font-size: 16px;
+    margin-left: 15px;
+}
+
+/* Style for the rating icon */
+.rating {
+    color: gold;
+}
+
+/* Style for the rating value */
+.ratingvalue {
+    margin-left: 5px;
+    color: white;
+}
+.ratingname{
+    margin-left: 15px;
+
+}
+.ProductReviews{
+    margin-top: 20px;
+}

@@ -28,7 +28,6 @@ function Image() {
         title: data.title,
         price: data.price,
         refImg: data.refImg,
-        review: data.review
       };
       setProduct(obj);
       setCurrentImage(obj.imageUrl);
@@ -55,9 +54,9 @@ function Image() {
   return (
     <Container fluid>
       <Row>
-        <Col md={6} style={{ borderRight: "5px solid black" }}>
+        <Col md={6} >
           <Container className="mt-2 mb-2 d-none d-lg-block">
-            <Row md={12} style={{ height: "85vh", width: "100%" }}>
+            <Row md={12} style={{ height: "83vh", width: "100%" }}>
               <ProductImagesVertical
                 OnClick={ImageChangeHandler}
                 images={product.refImg}
@@ -78,7 +77,7 @@ function Image() {
               ></ProductBigImagesmall>
             </Row>
           </Container>
-          <Container fluid className="mb-3">
+          <Container fluid className="mb-3 mt-2">
             <Row md={12}>
               <Col md={6}>
                 <Button variant="warning" style={{ width: "100%" }}>
@@ -98,12 +97,12 @@ function Image() {
             </Row>
           </Container>
         </Col>
-        <Col style={{ height: "85vh" }}>
-            <ProductTitle
-              title={product.title}
-              price={product.price}
-            ></ProductTitle>
-            <ProductReview review={product.review}></ProductReview>
+        <Col style={{height:"92vh",overflow:"auto"}} >
+          <ProductTitle
+            title={product.title}
+            price={product.price}
+          ></ProductTitle>
+          <ProductReview ></ProductReview>
         </Col>
       </Row>
     </Container>

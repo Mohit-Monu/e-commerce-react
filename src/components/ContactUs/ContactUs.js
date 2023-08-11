@@ -31,7 +31,7 @@ function ContactUs(props) {
         <b>Thank you for your Information</b>
       </p>
     </Alert>}
-      {showForm && <Container className=" pb-3 pt-3 mt-5 bg-dark rounded">
+      {showForm && <Container className=" pb-3 pt-3 mt-5 rounded shadow">
         <form onSubmit={formControlHandler}>
         <Form.Floating className="mb-3">
           <Form.Control

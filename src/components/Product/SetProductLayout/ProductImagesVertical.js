@@ -7,7 +7,7 @@ function ProductImages(props) {
     <Col lg={3}>
       <div
         className="custom-scroll-container"
-        style={{ height: "85vh", overflow: "auto" }}
+        style={{ height: "83vh", overflow: "auto" }}
       >
         <div class="custom-scroll-content">
           {props.images &&
@@ -16,7 +16,7 @@ function ProductImages(props) {
                 key={index}
                 fluid
                 rounded
-                className="p-1 "
+                className="p-1 shadow"
                 onClick={props.OnClick}
                 src={item}
               ></Image>
