@@ -9,7 +9,7 @@ function ProductImages(props) {
         className="custom-scroll-container"
         style={{ height: "83vh", overflow: "auto" }}
       >
-        <div class="custom-scroll-content">
+        <div className="custom-scroll-content">
           {props.images &&
             props.images.map((item, index) => (
               <Image

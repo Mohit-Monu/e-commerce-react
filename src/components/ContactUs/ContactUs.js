@@ -1,15 +1,19 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { Button, Container } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Alert from 'react-bootstrap/Alert';
-
+import AuthContext from "../../store/Auth-context";
+import { useNavigate } from 'react-router-dom';
 function ContactUs(props) {
+  const navigate = useNavigate();
+  const AuthCtx=useContext(AuthContext)
   const nameRef=useRef('')
   const emailRef=useRef('')
   const phoneRef=useRef('')
   const [showForm,setShowForm]= useState(true)
 
   function formControlHandler(e){
+  if(AuthCtx.isLoggedIn){
     e.preventDefault()
     const obj={
       name:nameRef.current.value,
@@ -18,6 +22,9 @@ function ContactUs(props) {
     }
     props.OnFormSubmit(obj)
     setShowForm(false)
+  }else{
+    navigate("/login")
+  }
   }
   return (
     <>

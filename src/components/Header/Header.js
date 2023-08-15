@@ -6,8 +6,13 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import CartContext from "../../store/Cart-context";
 import "./Header.css";
+import AuthContext from "../../store/Auth-context";
 function Header(props) {
+  const AuthCtx = useContext(AuthContext);
   const CartCtx = useContext(CartContext);
+  function LogoutHanler() {
+    AuthCtx.logout();
+  }
   return (
     <div>
       <Navbar expand="lg" className="bg-dark" variant="dark">
@@ -27,6 +32,24 @@ function Header(props) {
             </Nav>
           </Navbar.Collapse>
           <div>
+            {!AuthCtx.isLoggedIn && (
+              <Button
+                onClick={props.Onlogin}
+                style={{ display: "flex", float: "left", marginRight: "5px" }}
+                variant="outline-info"
+              >
+                <NavLink to="/login"> Log-In</NavLink>
+              </Button>
+            )}
+            {AuthCtx.isLoggedIn && (
+              <Button
+                onClick={LogoutHanler}
+                style={{ display: "flex", float: "left", marginRight: "5px" }}
+                variant="outline-info"
+              >
+                Log-Out
+              </Button>
+            )}
             <Button
               onClick={props.Onshowcart}
               style={{ display: "flex", float: "left" }}
