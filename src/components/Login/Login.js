@@ -33,6 +33,7 @@ function Login() {
         throw new Error(data.error.message);
       } else {
         AuthCtx.login(data.idToken);
+        localStorage.setItem("email",EmailRef.current.value)
         navigate("/home");
       }
     } catch (err) {
