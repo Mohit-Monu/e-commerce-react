@@ -56,9 +56,7 @@ function App() {
               <AuthProvider>
                 <ProductProvider>
                   <CartProvider>
-                    {AuthCtx.isLoggedIn && (
-                      <Cart show={ShowCart} onHide={CartHandler}></Cart>
-                    )}
+                    <Cart show={ShowCart} onHide={CartHandler}></Cart>
                     <Header Onshowcart={CartHandler}></Header>
                     <Display></Display>
                     <ShowProducts></ShowProducts>{" "}
@@ -75,12 +73,10 @@ function App() {
               <AuthProvider>
                 <ProductProvider>
                   <CartProvider>
-                    {AuthCtx.isLoggedIn && (
-                      <Cart show={ShowCart} onHide={CartHandler}></Cart>
-                    )}
+                    <Cart show={ShowCart} onHide={CartHandler}></Cart>
                     <Header Onshowcart={CartHandler}></Header>
                     <Display></Display>
-                    <Login></Login>{" "}
+                    <Login></Login>
                   </CartProvider>
                 </ProductProvider>
               </AuthProvider>
@@ -94,11 +90,9 @@ function App() {
               <AuthProvider>
                 <ProductProvider>
                   <CartProvider>
-                    {AuthCtx.isLoggedIn && (
-                      <Cart show={ShowCart} onHide={CartHandler}></Cart>
-                    )}
+                    <Cart show={ShowCart} onHide={CartHandler}></Cart>
                     <Header Onshowcart={CartHandler}></Header>
-                    <About></About>{" "}
+                    <About></About>
                   </CartProvider>
                 </ProductProvider>
               </AuthProvider>
@@ -112,11 +106,9 @@ function App() {
               <AuthProvider>
                 <ProductProvider>
                   <CartProvider>
-                    {AuthCtx.isLoggedIn && (
-                      <Cart show={ShowCart} onHide={CartHandler}></Cart>
-                    )}
+                    <Cart show={ShowCart} onHide={CartHandler}></Cart>
                     <Header Onshowcart={CartHandler}></Header>
-                    <ShowProducts></ShowProducts>{" "}
+                    <ShowProducts></ShowProducts>
                   </CartProvider>
                 </ProductProvider>
               </AuthProvider>
@@ -130,9 +122,9 @@ function App() {
               <AuthProvider>
                 <ProductProvider>
                   <CartProvider>
-                    <Cart show={ShowCart} onHide={CartHandler}></Cart>)
+                    <Cart show={ShowCart} onHide={CartHandler}></Cart>
                     <Header Onshowcart={CartHandler}></Header>
-                    <ContactUs OnFormSubmit={FormHandler}></ContactUs>{" "}
+                    <ContactUs OnFormSubmit={FormHandler}></ContactUs>
                   </CartProvider>
                 </ProductProvider>
               </AuthProvider>
@@ -141,20 +133,18 @@ function App() {
         />
         <Route
           path="/product/:productid"
-          element={
-            <>
+          element={AuthCtx.isLoggedIn ?
+            (<>
               <AuthProvider>
                 <ProductProvider>
                   <CartProvider>
-                    {AuthCtx.isLoggedIn && (
-                      <Cart show={ShowCart} onHide={CartHandler}></Cart>
-                    )}
+                    <Cart show={ShowCart} onHide={CartHandler}></Cart>
                     <Header Onshowcart={CartHandler}></Header>
-                    <Product></Product>{" "}
+                    <Product></Product>
                   </CartProvider>
                 </ProductProvider>
               </AuthProvider>
-            </>
+            </>):(<Navigate to="/login"></Navigate>)
           }
         />
         <Route
@@ -164,11 +154,9 @@ function App() {
               <AuthProvider>
                 <ProductProvider>
                   <CartProvider>
-                    {AuthCtx.isLoggedIn && (
-                      <Cart show={ShowCart} onHide={CartHandler}></Cart>
-                    )}
+                    <Cart show={ShowCart} onHide={CartHandler}></Cart>
                     <Header Onshowcart={CartHandler}></Header>
-                    <Navigate to="/"></Navigate>{" "}
+                    <Navigate to="/"></Navigate>
                   </CartProvider>
                 </ProductProvider>
               </AuthProvider>
