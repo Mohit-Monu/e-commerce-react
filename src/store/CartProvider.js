@@ -41,6 +41,9 @@ const CartProvider = (props) => {
   }, [fetchCart]);
   const addToCartHandler = async (item) => {
     if (AuthCtx.isLoggedIn) {
+      settotalPriceState((previtem)=>{
+        return previtem+item.price
+      })
       const email = localStorage.getItem("email");
       const modifiedEmail = email.replace(/[@.]/g, "");
       console.log(item);
@@ -84,6 +87,9 @@ const CartProvider = (props) => {
     const items = [];
     for (var i = 0; i < cartState.length; i++) {
       if (cartState[i].id === id) {
+        settotalPriceState((previtem)=>{
+          return previtem-cartState[i].price
+        })
       } else {
         items.push(cartState[i]);
       }
